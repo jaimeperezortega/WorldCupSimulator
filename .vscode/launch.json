@@ -7,11 +7,12 @@
         {
             "type": "node",
             "request": "launch",
+            "outputCapture": "std",
             "name": "Launch Program",
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/teams.js"
+            "program": "${workspaceFolder}/index.js"
         }
     ]
 }
