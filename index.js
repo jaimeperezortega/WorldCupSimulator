@@ -99,6 +99,8 @@ qatarWorldCupGroups.forEach(group =>{
    
      
     console.log("");
+
+   
 })
 
 const processedOcatvosList=[];
@@ -111,8 +113,13 @@ fullListofqualifyingTeamsForOctavos.forEach(pair =>{
     
 })
 
-const roundOf16TeamNames = processedOcatvosList;
+console.log(processedOcatvosList);
 
+
+
+
+
+const roundOf16TeamNames = processedOcatvosList;
 
 
 
@@ -135,6 +142,9 @@ console.log("");
    
 
 const roundOf16 = new PlayOffsPhase(roundOf16TeamNames);
+
+console.log(roundOf16.twoDimensionTeamNamesArray);
+
 roundOf16.scheduleMatchDay();
 roundOf16.start();
 

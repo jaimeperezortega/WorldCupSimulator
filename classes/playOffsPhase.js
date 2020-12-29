@@ -19,9 +19,11 @@ const AWAY_TEAM = 1;
 export default class playOffsPhase{
     constructor(teamNames){
         this.setupTeams(teamNames) //el poner este método aquí en el constructor provoca que se ejecute por cojones cada vez que instanciamos un nuevo objeto. No es enecesario llamar al método porque siempre se va a ejecturar
+        this.setupTwoDimensionTeamNamesArray(teamNames);
         this.matchDay = [];
         this.qualifyingTeams = [];
         this.loserTeams=[];
+        
     }
     setupTeams(teamNames){
         this.teams = [];
@@ -34,6 +36,19 @@ export default class playOffsPhase{
            this.teams.push(team)
         }
     }
+
+    setupTwoDimensionTeamNamesArray(teamNames){
+        this. twoDimensionTeamNamesArray=[];
+  
+    for (let i = 0; i <= teamNames.length; i+= 4) {
+      this.twoDimensionTeamNamesArray.push(teamNames.slice(i, i + 4)); 
+        
+         }
+         return  this.twoDimensionTeamNamesArray.pop()
+         
+    }
+
+
 
     setupMatchDay(){
         const numberOfMatchesEveryMatchDay = this.teams.length /2;
