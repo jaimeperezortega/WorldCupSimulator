@@ -28,16 +28,9 @@ export const teamsGroupH = fullListOfWorldCupTeams.slice(28,32);
 
 
 
-// const winnerTeamsGroupA = ["Germany", "Mexico"];
-// const winnerTeamsGroupB = ["Brasil", "South Korea"];
-// const winnerTeamsGroupC = ["Argentina", "Uruguay"];
-// const winnerTeamsGroupD = ["Spain", "Japan"];
-// const winnerTeamsGroupE = ["Italy", "Australia"];
-// const winnerTeamsGroupF = ["Nederlands", "Sweden"];
-// const winnerTeamsGroupG = ["Russia", "Cameroon"];
-// const winnerTeamsGroupH = ["Vatican City", "Namibia"];
+const initialroundOf16TeamNames = ["Argentina", "Uruguay", "Burundi", "USA", "Germany", "Mexico", "Canada", "Thailand", "Spain", "Vatican City", "Poland", "Ecuador", "Italy", "Australia", "Egypt", "Austria"];
 
-// const worldCupPlayOffTeams = [...winnerTeamsGroupA, ...winnerTeamsGroupB, ...winnerTeamsGroupC, ...winnerTeamsGroupD, ...winnerTeamsGroupE, ...winnerTeamsGroupF, ...winnerTeamsGroupG, ...winnerTeamsGroupH];
+export const roundOf16TeamNames = initialroundOf16TeamNames.shuffle();
 
 
 
