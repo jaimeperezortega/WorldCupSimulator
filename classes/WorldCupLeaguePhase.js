@@ -9,6 +9,7 @@ const AWAY_TEAM = 1;
         this.setup(config)
         this.setupTeams(teamNames)
         this.summaries = []
+        this.qualifyingTeams=[]
        
     }
     setup(config){
@@ -137,7 +138,9 @@ const AWAY_TEAM = 1;
             this.getStandings();
             matchDaySummary.standings = this.teams.map(team=>Object.assign({}, team));
             this.summaries.push(matchDaySummary);
+            
         }
+        this.qualifyingTeams.push(this.teams[0].name, this.teams[1].name);
     }
 
    
