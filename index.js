@@ -12,7 +12,9 @@ import {teamsGroupH} from "./teams.js"
 
 import WorldCupLeaguePhase from "./classes/WorldCupLeaguePhase.js";
 import WorldCupPlayoffsPhase from "./classes/WorldCupPlayoffsPhase.js";
-import PlayOffsPhase from "./classes/playOffsPhase.js"
+
+import PlayoffsPhase from "./classes/RoundOf16Phase.js"
+
 
 
 const groupALeague = new WorldCupLeaguePhase("GRUPO A", teamsGroupA);
@@ -113,24 +115,14 @@ fullListofqualifyingTeamsForOctavos.forEach(pair =>{
     
 })
 
-console.log(processedOcatvosList);
-
-
-
 
 
 const roundOf16TeamNames = processedOcatvosList;
 
 
-
-
-
-
 //COMENZAR LA FASE DE PLAYOFFS
 
 
-
-// import {roundOf16TeamNames} from "./teams.js";
 
 
 
@@ -141,12 +133,14 @@ console.log("==================================");
 console.log("");
    
 
-const roundOf16 = new PlayOffsPhase(roundOf16TeamNames);
+const roundOf16 = new PlayoffsPhase(roundOf16TeamNames);
 
-console.log(roundOf16.twoDimensionTeamNamesArray);
 
-roundOf16.scheduleMatchDay();
+roundOf16.setupMatchDayRoundOf16();
+
+
 roundOf16.start();
+
 
 
 console.log("");
@@ -157,8 +151,8 @@ console.log("");
 
 const roundOf8TeamNames= roundOf16.qualifyingTeams;
 
-const roundOf8 = new PlayOffsPhase(roundOf8TeamNames);
-roundOf8.scheduleMatchDay();
+const roundOf8 = new PlayoffsPhase(roundOf8TeamNames);
+roundOf8.setupMatchDayRoundOf8();
 roundOf8.start();
 
 console.log("");
@@ -168,8 +162,8 @@ console.log("==================================");
 console.log("");
 
 const roundOf4TeamNames = roundOf8.qualifyingTeams;
-const roundOf4 = new PlayOffsPhase(roundOf4TeamNames);
-roundOf4.scheduleMatchDay();
+const roundOf4 = new PlayoffsPhase(roundOf4TeamNames);
+roundOf4.setupMatchDayRoundOf4();
 roundOf4.start();
 
 console.log("");
@@ -180,8 +174,8 @@ console.log("");
 
 
 const runnersUpTeamNames = roundOf4.loserTeams;
-const runnersUp = new PlayOffsPhase(runnersUpTeamNames);
-runnersUp.scheduleMatchDay();
+const runnersUp = new PlayoffsPhase(runnersUpTeamNames);
+runnersUp.setupMatchDayFinals();
 runnersUp.start();
 
 console.log("");
@@ -191,8 +185,8 @@ console.log("==================================");
 console.log("");
 
 const finalsTeamNames = roundOf4.qualifyingTeams;
-const finals = new PlayOffsPhase(finalsTeamNames);
-finals.scheduleMatchDay();
+const finals = new PlayoffsPhase(finalsTeamNames);
+finals.setupMatchDayFinals();
 finals.start();
 
 const worldCupChampionTeam = finals.qualifyingTeams;

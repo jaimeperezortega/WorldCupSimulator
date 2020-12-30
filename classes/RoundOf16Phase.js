@@ -16,7 +16,7 @@ const LOCAL_TEAM= 0;
 const AWAY_TEAM = 1;
 
 
-export default class playOffsPhase{
+export default class PlayoffsPhase{
     constructor(teamNames){
         this.setupTeams(teamNames) //el poner este método aquí en el constructor provoca que se ejecute por cojones cada vez que instanciamos un nuevo objeto. No es enecesario llamar al método porque siempre se va a ejecturar
         this.setupTwoDimensionTeamNamesArray(teamNames);
@@ -50,45 +50,56 @@ export default class playOffsPhase{
 
 
 
-    setupMatchDay(){
-        const numberOfMatchesEveryMatchDay = this.teams.length /2;
+    setupMatchDayRoundOf16(){
+        // const numberOfMatchesEveryMatchDay = this.teams.length /2;
 
-        for (let i=0; i<numberOfMatchesEveryMatchDay; i++){//Tantas iteraciones como partidos haya en cada jornada
-            const match = ["local", "visitante", "Equipo ganador"]; //[["Equipo local", "Equipo visitante"], "Equipo Ganador"];
-            this.matchDay.push(match);
+        const match1 = [[this.teams[0].name, this.teams[3].name]];
+        const match2 = [[this.teams[1].name, this.teams[2].name]];
+        const match3 = [[this.teams[4].name, this.teams[7].name]];
+        const match4 = [[this.teams[5].name, this.teams[6].name]];
+        const match5 = [[this.teams[8].name, this.teams[11].name]];
+        const match6 = [[this.teams[9].name, this.teams[10].name]];
+        const match7 = [[this.teams[12].name, this.teams[15].name]];
+        const match8 = [[this.teams[13].name, this.teams[14].name]];
+            this.matchDay = [...match1,...match2,...match3,...match4,...match5,...match6,...match7,...match8]; //[["Equipo local", "Equipo visitante"], "Equipo Ganador"];
+            // this.matchDay.push(match);
         }
-    }
 
-    getTeamNames(){
+        setupMatchDayRoundOf8(){
+           
+    
+            const match1 = [[this.teams[0].name, this.teams[1].name]];
+            const match2 = [[this.teams[2].name, this.teams[3].name]];
+            const match3 = [[this.teams[4].name, this.teams[5].name]];
+            const match4 = [[this.teams[6].name, this.teams[7].name]];
+            
+                this.matchDay = [...match1,...match2,...match3,...match4]; //[
+            }
+
+    setupMatchDayRoundOf4(){
+                
+        
+                const match1 = [[this.teams[0].name, this.teams[1].name]];
+                const match2 = [[this.teams[2].name, this.teams[3].name]];
+               
+                    this.matchDay = [...match1,...match2]; 
+                }
+
+    
+    setupMatchDayFinals(){
+                
+        
+            const match1 = [[this.teams[0].name, this.teams[1].name]];
+            
+                   
+                        this.matchDay = [...match1]; 
+                    }
+
+    getTeamNames() {
         return this.teams.map(team=>team.name)
     }
 
-    setLocalTeams(){
-        const teamNames = this.getTeamNames();
-        let teamIndex = 0;
-            this.matchDay.forEach(match=>{ 
-                match[LOCAL_TEAM] = teamNames[teamIndex];
-                teamIndex+=2
-               
-            })
-    }
 
-    setAwayTeams(){
-        const teamNames = this.getTeamNames();
-        let teamIndex = 1;
-            this.matchDay.forEach(match=>{ 
-                match[AWAY_TEAM] = teamNames[teamIndex];
-                teamIndex+=2
-               
-            })
-    }
-
-    scheduleMatchDay(){
-        this.setupMatchDay();
-        this.setLocalTeams();
-        this.setAwayTeams();
-    
-    }
 
     start(){
         this.matchDay.forEach(match =>{
